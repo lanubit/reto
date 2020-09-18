@@ -1,16 +1,22 @@
 export class EntityUtil {
 
-    className;
+    entity;
+    keys;
 
     constructor(
-        className: string
+        entity: object,
+        keys: object
     ) {
-        this.className = className;
-        this.changeKeys();
+        this.entity = entity;
+        this.keys = keys;
     }
 
-    async changeKeys(){
-        console.log(this.className);
+    public async changeEnglishToSpanish(): Promise<object>{
+        const objectKeys = Object.keys(this.entity);
+        let result = {};
+        objectKeys.forEach(key => {
+            result[this.keys[key]] = this.entity[key];
+        });
+        return result;
     }
-
 }

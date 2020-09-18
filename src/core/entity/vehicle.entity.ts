@@ -1,4 +1,5 @@
-export class VehicleEntity {
+export class VehicleEntity{
+
     private id: string;
     private name: string;
     private model: string;
@@ -73,5 +74,29 @@ export class VehicleEntity {
         this.created = created;
         this.edited = edited;
         this.url = url;
+    }
+
+    public async parseKey(){
+        const object: object = {
+            id: 'id',
+            name: 'nombre',
+            model: 'modelo',
+            manufacturer: 'fabricante',
+            cost_in_credits: 'costo_en_partes',
+            length: 'tamaño',
+            max_atmosphering_speed: 'velocidad_maxima',
+            crew: 'tripulacion',
+            passengers: 'pasajeros',
+            cargo_capacity: 'capacidad_carga',
+            consumables: 'consumo',
+            vehicle_class: 'tipo_vehiculo',
+            pilots: 'pilotos',
+            films: 'peliculas',
+            created: 'fecha_crecion',
+            edited: 'fecha_actualizacion',
+            url: 'url'
+        };
+
+        return object;
     }
 }

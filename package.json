@@ -14,7 +14,8 @@
     "aws-sdk": "2.754.0",
     "bluebird": "3.7.2",
     "uuid": "8.3.0",
-    "axios": "0.20.0"
+    "axios": "0.20.0",
+    "js-yaml": "3.14.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
