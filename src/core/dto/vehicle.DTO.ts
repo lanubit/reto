@@ -1,10 +1,10 @@
 export interface VehicleDTO {
     id: string,
-    name: string,
+    vehicle_name: string,
     model: string,
     manufacturer: string,
     cost_in_credits: string,
-    length: string,
+    vehicle_length: string,
     max_atmosphering_speed: string,
     crew: string,
     passengers: string,

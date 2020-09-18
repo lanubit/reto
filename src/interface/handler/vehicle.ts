@@ -14,3 +14,16 @@ export const create: APIGatewayProxyHandler = async (event, _context) => {
         body: JSON.stringify(vehicle, null, 2)
     };
 };
+
+export const list: APIGatewayProxyHandler = async (event, _context) => {
+    const vehicles = await (new VehicleController()).list(event);
+
+    const success: boolean = (vehicles.code == HttpUtil.success_api_code);
+
+    const statusCode: number = success ? HttpUtil.http_ok_code : HttpUtil.http_error_code;
+    return {
+        statusCode: statusCode,
+        body: JSON.stringify(vehicles, null, 2)
+    };
+};
+

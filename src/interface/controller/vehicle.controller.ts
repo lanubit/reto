@@ -25,4 +25,13 @@ export class VehicleController {
         }
     }
 
+    async list(event: any) {
+        try {
+            const result = await this.vehicleService.list();
+            return Response.success(result);
+        } catch (err) {
+            return Response.error(err.message);
+        }
+    }
+
 }

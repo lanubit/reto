@@ -1,8 +1,12 @@
 import {DynamoAdapter} from "../adapter/dynamo.adapter";
 import {VehicleDTO} from "../../core/dto/vehicle.DTO";
 import {VehicleEntity} from "../../core/entity/vehicle.entity";
+import {VehicleInterface} from "../interface/vehicle.interface";
+//import {injectable} from "inversify";
 
-export class VehicleRepository extends DynamoAdapter{
+
+//@injectable()
+export class VehicleRepository extends DynamoAdapter implements VehicleInterface{
 
     constructor() {
         super();
@@ -13,6 +17,7 @@ export class VehicleRepository extends DynamoAdapter{
         try {
             const vehicleEntity: VehicleEntity = await this.payloadEntity(vehicle);
             const create = await this.save(vehicleEntity);
+            console.log('----insert dynamo----', create);
             return vehicleEntity;
         } catch (err) {
             console.log(err.code, err.message);
@@ -20,14 +25,29 @@ export class VehicleRepository extends DynamoAdapter{
         }
     }
 
+    async list(): Promise<VehicleEntity[]> {
+        try {
+            const items = "id, vehicle_name, model, manufacturer, cost_in_credits, length, max_atmosphering_speed, crew, passengers, cargo_capacity, consumables, vehicle_class, pilots, films, created, edited, url";
+            const list = await this.get(items);
+            console.log('----list dynamo----', list);
+            return list;
+        } catch (err) {
+            console.log('-------ERROR LECTURA---');
+            console.log(err.code, err.message);
+            console.log(err);
+            console.log('-------END ERROR LECTURA---');
+            throw new Error(err.message)
+        }
+    }
+
     private async payloadEntity(vehicleDTO: VehicleDTO): Promise<VehicleEntity> {
         return new VehicleEntity(
             vehicleDTO.id,
-            vehicleDTO.name,
+            vehicleDTO.vehicle_name,
             vehicleDTO.model,
             vehicleDTO.manufacturer,
             vehicleDTO.cost_in_credits,
-            vehicleDTO.length,
+            vehicleDTO.vehicle_name,
             vehicleDTO.max_atmosphering_speed,
             vehicleDTO.crew,
             vehicleDTO.passengers,

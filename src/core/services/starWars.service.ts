@@ -2,6 +2,7 @@
 import {StarWarsRest} from "../../infrastructure/rest/starWars.rest";
 import {VehicleEntity} from "../entity/vehicle.entity";
 import {EntityUtil} from "../util/entity.util";
+//import {TYPES} from "../../infrastructure/injection/type";
 //import {EntityUtil} from "../util/entity.util";
 
 //@injectable()

@@ -65,6 +65,17 @@ const serverlessConfiguration: Serverless = {
           }
         }
       ]
+    },
+    listVehicles: {
+      handler: 'src/interface/handler/vehicle.list',
+      events: [
+        {
+          http: {
+            method: 'get',
+            path: 'vehicles',
+          }
+        }
+      ]
     }
   },
   resources: {

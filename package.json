@@ -9,13 +9,13 @@
     "local": "serverless offline start"
   },
   "dependencies": {
-    "source-map-support": "^0.5.10",
-    "inversify": "5.0.1",
     "aws-sdk": "2.754.0",
-    "bluebird": "3.7.2",
-    "uuid": "8.3.0",
     "axios": "0.20.0",
-    "js-yaml": "3.14.0"
+    "bluebird": "3.7.2",
+    "inversify": "5.0.1",
+    "reflect-metadata": "0.1.13",
+    "source-map-support": "^0.5.10",
+    "uuid": "8.3.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",

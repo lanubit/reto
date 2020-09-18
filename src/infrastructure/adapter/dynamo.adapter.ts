@@ -28,7 +28,7 @@ export class DynamoAdapter {
         return this.tableName;
     }
 
-    public async save(data): Promise<any>{
+    public async save(data): Promise<any> {
         const params = {
             TableName: this.getTableName(),
             Item: data,
@@ -40,5 +40,22 @@ export class DynamoAdapter {
             .promise()
             .then(data => data.Attributes)
             .catch(console.error);
+    }
+
+    public async get(items: string): Promise<any> {
+        this.client = await this.getClient();
+
+        const params = {
+            TableName: this.getTableName(),
+            ProjectionExpression: items,
+            Key: {}
+
+        };
+
+        const result: any = await this.client.get(params).promise();
+
+        console.log('-----result-----', result);
+
+        return JSON.stringify(result.Items)
     }
 }

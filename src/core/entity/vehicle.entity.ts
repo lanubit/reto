@@ -1,11 +1,11 @@
 export class VehicleEntity{
 
     private id: string;
-    private name: string;
+    private vehicle_name: string;
     private model: string;
     private manufacturer: string;
     private cost_in_credits: string;
-    private length: string;
+    private vehicle_length: string;
     private max_atmosphering_speed: string;
     private crew: string;
     private passengers: string;
@@ -19,13 +19,12 @@ export class VehicleEntity{
     private url: string;
 
     /**
-     *
      * @param id
-     * @param name
+     * @param vehicle_name
      * @param model
      * @param manufacturer
      * @param cost_in_credits
-     * @param length
+     * @param vehicle_length
      * @param max_atmosphering_speed
      * @param crew
      * @param passengers
@@ -40,11 +39,11 @@ export class VehicleEntity{
      */
     constructor(
         id: string,
-        name: string,
+        vehicle_name: string,
         model: string,
         manufacturer: string,
         cost_in_credits: string,
-        length: string,
+        vehicle_length: string,
         max_atmosphering_speed: string,
         crew: string,
         passengers: string,
@@ -58,11 +57,11 @@ export class VehicleEntity{
         url: string
     ) {
         this.id = id;
-        this.name = name;
+        this.vehicle_name = vehicle_name;
         this.model = model;
         this.manufacturer = manufacturer;
         this.cost_in_credits = cost_in_credits;
-        this.length = length;
+        this.vehicle_length = vehicle_length;
         this.max_atmosphering_speed = max_atmosphering_speed;
         this.crew = crew;
         this.passengers = passengers;
@@ -79,11 +78,11 @@ export class VehicleEntity{
     public async parseKey(){
         const object: object = {
             id: 'id',
-            name: 'nombre',
+            vehicle_name: 'nombre',
             model: 'modelo',
             manufacturer: 'fabricante',
             cost_in_credits: 'costo_en_partes',
-            length: 'tamaño',
+            vehicle_length: 'tamaño',
             max_atmosphering_speed: 'velocidad_maxima',
             crew: 'tripulacion',
             passengers: 'pasajeros',
