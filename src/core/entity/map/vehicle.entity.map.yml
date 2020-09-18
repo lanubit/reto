@@ -1,0 +1,18 @@
+VehicleEntity:
+  id: id
+  name: nombre
+  model: modelo
+  manufacturer: fabricante
+  cost_in_credits: costo_en_credito,
+  length: longitud,
+  max_atmosphering_speed: velocidad_maxima,
+  crew: tipulacion,
+  passengers: pasajeros,
+  cargo_capacity: capacidad_carga,
+  consumables: consumo,
+  vehicle_class: tipo_vehiculo,
+  pilots: pilotos,
+  films: peliculas,
+  created: fecha_creacion,
+  edited: fecha_edicion,
+  url: url

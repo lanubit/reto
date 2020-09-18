@@ -29,7 +29,8 @@ const serverlessConfiguration: Serverless = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-      VEHICLE_TABLE: "vehicle-${self:service}-${opt:stage, self:provider.stage}"
+      VEHICLE_TABLE: "vehicle-${self:service}-${opt:stage, self:provider.stage}",
+      STAR_WARS_API: "https://swapi.py4e.com/api/"
     },
     iamRoleStatements: [
       {
@@ -43,13 +44,13 @@ const serverlessConfiguration: Serverless = {
     ]
   },
   functions: {
-    hello: {
-      handler: 'src/interface/handler/handler.hello',
+    starWarsVehicles: {
+      handler: 'src/interface/handler/starWars.getVehicles',
       events: [
         {
           http: {
             method: 'get',
-            path: 'hello',
+            path: 'star-wars-vehicles',
           }
         }
       ]

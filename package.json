@@ -13,7 +13,8 @@
     "inversify": "5.0.1",
     "aws-sdk": "2.754.0",
     "bluebird": "3.7.2",
-    "uuid": "8.3.0"
+    "uuid": "8.3.0",
+    "axios": "0.20.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
